@@ -75,8 +75,8 @@ After=network.target
 User=$USER
 Group=$USER
 
-WorkingDirectory=$GOPATH/src/github.com/ava-labs/avalanchego
-ExecStart=$GOPATH/src/github.com/ava-labs/avalanchego/build/avalanchego
+WorkingDirectory=/home/ubuntu/go/src/github.com/ava-labs/avalanchego
+ExecStart=/home/ubuntu/go/src/github.com/ava-labs/avalanchego/build/avalanchego
 
 Restart=always
 PrivateTmp=true
@@ -91,8 +91,8 @@ EOF'
 else
 sudo bash -c 'cat <<EOF > /etc/supervisor/conf.d/avaxnode.conf
 [program:avaxnode]
-directory=$GOPATH/src/github.com/ava-labs/avalanchego
-command=$GOPATH/src/github.com/ava-labs/avalanchego/build/avalanchego
+directory='$GOPATH'/src/github.com/ava-labs/avalanchego
+command='$GOPATH'/src/github.com/ava-labs/avalanchego/build/avalanchego
 user=$SUDO_USER
 environment=HOME="/home/$SUDO_USER",USER="$SUDO_USER"
 autostart=true

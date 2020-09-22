@@ -62,6 +62,7 @@ cd $HOME
 go get -v -d github.com/ava-labs/avalanchego/...
 
 cd $GOPATH/src/github.com/ava-labs/avalanchego
+./scripts/build.sh
 
 echo '### Creating AVA node service...'
 if [ -n "$SYSTEMD_SUPPORTED" ]; then

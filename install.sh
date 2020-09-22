@@ -55,6 +55,7 @@ go env -w GOPATH=$HOME/go
 echo "export GOPATH=$HOME/go" >> ~/.bash_profile
 source ~/.bash_profile
 export GOPATH=$HOME/go
+sudo rm -rf $GOPATH
 
 echo '### Cloning gecko directory...'
 cd $HOME

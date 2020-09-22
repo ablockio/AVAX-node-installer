@@ -75,8 +75,8 @@ After=network.target
 User=$USER
 Group=$USER
 
-WorkingDirectory=/home/ubuntu/go/src/github.com/ava-labs/avalanchego
-ExecStart=/home/ubuntu/go/src/github.com/ava-labs/avalanchego/build/avalanchego
+WorkingDirectory='$GOPATH'/src/github.com/ava-labs/avalanchego
+ExecStart='$GOPATH'/src/github.com/ava-labs/avalanchego/build/avalanchego
 
 Restart=always
 PrivateTmp=true

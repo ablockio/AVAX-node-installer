@@ -1,8 +1,12 @@
 # Intro
 
 This script is a community effort to facilitate the creation of AVAX Nodes on Mainnet
-
 This script automates the steps of the following guide https://github.com/ava-labs/avalanchego
+
+
+# PRE REQUISITES
+
+This script has been tested on AWS with a ubuntu instance.
 
 ## Usage
 

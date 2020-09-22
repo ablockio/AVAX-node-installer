@@ -38,7 +38,7 @@ sudo apt-get update -y
 # sudo apt upgrade
 sudo apt-get -y install curl dirmngr apt-transport-https lsb-release ca-certificates
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-sudo apt-get install gcc g++ make
+sudo apt-get -y install gcc g++ make
 sudo apt-get -y install nodejs
 sudo apt-get -y install npm
 

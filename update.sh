@@ -58,7 +58,7 @@ After=network.target
 User=$USER
 Group=$USER
 
-$ARG1='$ARGS_NODE'
+ARG1='$ARGS_NODE'
 
 WorkingDirectory=$HOME/avalanche-'$_VERSION'
 ExecStart=$HOME/avalanche-'$_VERSION'/avalanchego $ARG1

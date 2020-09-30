@@ -112,6 +112,3 @@ sudo supervisorctl start avaxnode
 echo 'Type the following command to monitor the AVA node service:'
 echo '    sudo supervisorctl status avaxnode'
 fi
-
-echo ' ----- '
-echo 'cat /etc/systemd/system/avaxnode.service'

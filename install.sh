@@ -75,8 +75,11 @@ After=network.target
 User=$USER
 Group=$USER
 
+ARG2=-api-admin-enabled=true -api-health-enabled=true -api-info-enabled=true -api-ipcs-enabled=true  -api-metrics-enabled=true -api-keystore-enabled=true -api-metrics-enabled=true --http-host=ec2-3-133-220-103.us-east-2.compute.amazonaws.com --http-port=9650
+
 WorkingDirectory='$GOPATH'/src/github.com/ava-labs/avalanchego
 ExecStart='$GOPATH'/src/github.com/ava-labs/avalanchego/build/avalanchego
+
 
 Restart=always
 PrivateTmp=true

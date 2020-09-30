@@ -49,7 +49,7 @@ fi
 
 echo '### Creating AVAX node service...'
 if [ -n "$SYSTEMD_SUPPORTED" ]; then
-sudo USER=$USER bash -c 'cat <<EOF > /etc/systemd/system/avaxnode.service'
+sudo USER=$USER bash -c 'cat <<EOF > /etc/systemd/system/avaxnode.service
 [Unit]
 Description=AVAX Node service
 After=network.target
@@ -106,7 +106,6 @@ wget https://github.com/ava-labs/avalanchego/releases/download/v$_VERSION/avalan
 tar -xvf avalanchego-linux-$_VERSION.tar
 
 cd avalanchego-linux-$_VERSION
-
 
 echo '### Launching AVA node...'
 if [ -n "$SYSTEMD_SUPPORTED" ]; then

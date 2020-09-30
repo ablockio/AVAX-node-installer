@@ -105,7 +105,7 @@ tar -xvf avalanchego-linux-$_VERSION.tar.gz
 wget https://github.com/ava-labs/avalanchego/releases/download/v$_VERSION/avalanchego-linux-$_VERSION.tar
 tar -xvf avalanchego-linux-$_VERSION.tar
 
-cd avalanchego-linux-$_VERSION
+cd avalanchego-$_VERSION
 
 echo '### Launching AVA node...'
 if [ -n "$SYSTEMD_SUPPORTED" ]; then

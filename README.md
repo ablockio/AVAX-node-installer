@@ -31,20 +31,22 @@ curl -X POST --data '{
 THE UPDATE SCRIPT IS TO BE USED ONLY FOR PERSONS USING UBUNTU AND HAVE USED OUR INSTALL SCRIPT.
 THE SCRIPT IS OPEN SOURCED. VERIFY YOUR NODE STATUS AFTER YOU DID UPDATE IT
 
-  1. Connect to your VPS and go to your $HOME dir
-  2. launch the following command to get the script
-  ```shell
-  wget https://raw.githubusercontent.com/ablockio/AVAX-node-installer/master/update.sh > update.sh
-  ```
-  3. Grant the file the right to be executed
-  ```shell
-  chmod 777 update.sh
-  ```
-  4. If you have specific config for your node, define it on a new file `configNode.txt`
-
+  1. Connect to your VPS
+  2. Connect as root
   ```shell
   sudo su
   cd $HOME
+  ```
+  3. launch the following command to get the script
+  ```shell
+  wget https://raw.githubusercontent.com/ablockio/AVAX-node-installer/master/update.sh > update.sh
+  ```
+  4. Grant the file the right to be executed
+  ```shell
+  chmod 777 update.sh
+  ```
+  5. If you have specific config for your node, define it on a new file `configNode.txt`
+  ```shell
   vi configNode.txt
   ```
   This file shall have Node parameters ONLY. for example :
@@ -52,8 +54,6 @@ THE SCRIPT IS OPEN SOURCED. VERIFY YOUR NODE STATUS AFTER YOU DID UPDATE IT
   -api-admin-enabled=true -api-health-enabled=true
   ```
   This file will remain untouched even if we update the script. You can keep the same config on each updates !
-  5. Go back to your context
-  If you did configured the `configNode.txt` file, do `exit; cd $HOME`
 
   6. Finally update
   ```shell

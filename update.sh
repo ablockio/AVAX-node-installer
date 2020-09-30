@@ -6,7 +6,7 @@
 #######################################
 
 _VERSION=$1
-_ARGS_NODE=`cat configNode.txt`
+_ARGS_NODE=""
 echo "VERSION: $_VERSION $_ARGS_NODE"
 
 echo '  ______   __     __   ______   __    __         __    __   ______   _______   ________ '
@@ -38,7 +38,6 @@ echo $PID
 sudo kill -9 $PID
 fi
 
-
 echo '### Checking if systemd is supported...'
 if systemctl show-environment &> /dev/null ; then
 SYSTEMD_SUPPORTED=1
@@ -58,11 +57,8 @@ After=network.target
 User=$USER
 Group=$USER
 
-ARG1='$ARGS_NODE'
-
 WorkingDirectory=$HOME/avalanche-'$_VERSION'
-ExecStart=$HOME/avalanche-'$_VERSION'/avalanchego $ARG1
-
+ExecStart=$HOME/avalanche-'$_VERSION'/avalanchego `cat $HOME/configNode.txt`
 
 Restart=always
 PrivateTmp=true
@@ -79,7 +75,7 @@ else
 sudo bash -c 'cat <<EOF > /etc/supervisor/conf.d/avaxnode.conf
 [program:avaxnode]
 directory=/home/$SUDO_USER/avalanche-'$_VERSION'
-command=/home/$SUDO_USER/avalanche-'$_VERSION'/avalanchego '$ARGS_NODE'
+command=/home/$SUDO_USER/avalanche-'$_VERSION'/avalanchego `cat $HOME/configNode.txt`
 user=$SUDO_USER
 environment=HOME="/home/$SUDO_USER",USER="$SUDO_USER"
 autostart=true
@@ -102,11 +98,8 @@ cd $HOME
 wget https://github.com/ava-labs/avalanchego/releases/download/v$_VERSION/avalanchego-linux-$_VERSION.tar.gz
 tar -xvf avalanchego-linux-$_VERSION.tar.gz
 
-wget https://github.com/ava-labs/avalanchego/releases/download/v$_VERSION/avalanchego-linux-$_VERSION.tar
-tar -xvf avalanchego-linux-$_VERSION.tar
-
-cd avalanchego-$_VERSION
-
+cd avalanche-$_VERSION
+pwd
 echo '### Launching AVA node...'
 if [ -n "$SYSTEMD_SUPPORTED" ]; then
 sudo systemctl enable avaxnode
@@ -119,3 +112,6 @@ sudo supervisorctl start avaxnode
 echo 'Type the following command to monitor the AVA node service:'
 echo '    sudo supervisorctl status avaxnode'
 fi
+
+echo ' ----- '
+echo 'cat /etc/systemd/system/avaxnode.service'

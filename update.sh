@@ -7,7 +7,7 @@
 
 _VERSION=$1
 _ARGS_NODE=`cat configNode.txt`
-echo "VERSION: $_VERSION"
+echo "VERSION: $_VERSION $_ARGS_NODE"
 
 echo '  ______   __     __   ______   __    __         __    __   ______   _______   ________ '
 echo ' /      \ |  \   |  \ /      \ |  \  |  \       |  \  |  \ /      \ |       \ |        \'
